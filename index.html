@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    function computerPlay() {
+        var options = [
+            'rock',
+            'paper',
+            'scissors'
+        ];
+
+        var num = Math.floor(Math.random()*options.length);
+
+        return options[num];
+    }
+
+    function playRound(playerSelection, computerSelection){
+
+        let ptotal = 0;
+        let ctotal = 0;
+
+        player = playerSelection.toLowerCase();
+
+        if (player === computerSelection){
+            return "It's a Tie!"
+        }
+
+        else if (computerSelection === "rock"){
+            if (player === "paper"){
+                return "You Win!"
+                ptotal++;
+            }
+        }
+
+        else if (computerSelection === "paper"){
+            if (player === "scissors"){
+                return "You Win!"
+                 ptotal ++;
+            }
+        }
+
+        else if (computerSelection === "scissors"){
+            if (player === "rock"){
+                return "You Win!"
+                ptotal ++;
+            }
+        }
+
+        else{
+            return "You lose :("
+            ctotal++;
+        }
+
+        return ptotal;
+        return ctotal;
+            
+        
+    }
+
+    function game() {
+        for (let i = 0; i < 5; i++){
+
+            let playerSelection = prompt("Rock Paper or Scissors?")
+            let computerSelection = computerPlay();
+
+            playRound(playerSelection, computerSelection);
+
+        }
+       
+        if( ptotal > ctotal){
+            return "Player Wins!"
+        }
+
+        else{
+            return "Computer Wins!"
+        }
+    
+    }
+    
+    
+  </script>
+</body>
+</html>
