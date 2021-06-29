@@ -19,65 +19,72 @@
         return options[num];
     }
 
-    function playRound(playerSelection, computerSelection){
-
-        let ptotal = 0;
-        let ctotal = 0;
+   function playRound(playerSelection, computerSelection){
 
         player = playerSelection.toLowerCase();
 
         if (player === computerSelection){
-            return "It's a Tie!"
+            alert("It's a Tie!")
         }
 
         else if (computerSelection === "rock"){
             if (player === "paper"){
-                return "You Win!"
-                ptotal++;
+                alert("You Win!")
+                result = 1
             }
         }
 
         else if (computerSelection === "paper"){
             if (player === "scissors"){
-                return "You Win!"
-                 ptotal ++;
+                alert("You Win!")
+                result = 1;
             }
         }
 
         else if (computerSelection === "scissors"){
             if (player === "rock"){
-                return "You Win!"
-                ptotal ++;
+                alert("You Win!")
+                result = 1;
             }
         }
 
         else{
-            return "You lose :("
-            ctotal++;
+            alert("You Lose :(");
+            result = 0;
         }
-
-        return ptotal;
-        return ctotal;
             
         
     }
 
     function game() {
+
+        let playerPoints = 0;
+        let pcPoints = 0;
+
         for (let i = 0; i < 5; i++){
 
             let playerSelection = prompt("Rock Paper or Scissors?")
             let computerSelection = computerPlay();
 
-            playRound(playerSelection, computerSelection);
+            let result = playRound(playerSelection, computerSelection);
+
+            if (result === 1){
+                playerPoints++;
+
+            }
+
+            else{
+                pcPoints ++;
+            }
 
         }
        
-        if( ptotal > ctotal){
-            return "Player Wins!"
+        if (playerPoints > pcPoints){
+            alert("You Won Best of 5!");
         }
 
         else{
-            return "Computer Wins!"
+            alert("Computer Won :((");
         }
     
     }
